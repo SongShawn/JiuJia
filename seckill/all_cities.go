@@ -80,6 +80,44 @@ type AllCitiesCode struct {
 	Ok bool `json:"ok"`
 }
 
+type AllCitiesCodeNew struct {
+	Code string `json:"code"`
+	Data struct {
+		CityData []struct {
+			CityId   string `json:"cityId"`
+			CityName string `json:"cityName"`
+			// citySpell
+			// cityFirstLetter
+		}
+	}
+	Ok    bool `json:"ok"`
+	NotOk bool `json:"notOk"`
+}
+
+func (s AllSteps) GetAllCitiesCodeNew() (map[string]string, error) {
+	allCities := AllCitiesCodeNew{}
+	r := make(map[string]string)
+
+	resp, err := s.Requests.Get(GetAllCitiesCodeUrl, nil, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(resp, &allCities); err != nil {
+		return nil, err
+	}
+
+	if !allCities.Ok {
+		return nil, fmt.Errorf("server return not ok")
+	}
+
+	for _, v := range allCities.Data.CityData {
+		r[v.CityId] = v.CityName
+	}
+
+	return r, nil
+}
+
 // 获取所有的城市的编码
 func (s AllSteps) GetAllCitiesCode() (map[string]string, error) {
 

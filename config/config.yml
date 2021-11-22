@@ -9,6 +9,7 @@ vcode:
 
 yuemiao:
   # tk需要自行抓包获取到,在约苗小程序里，随便一个接口获取header中的tk填写此处
+#  tk: "wxtoken:c568106b4b1d4c33e3dcaadf9aebfa2c_1b6e4a292a194c245776831414c250fb"
   tk: ""
   # 用来表示是否输出详细日志
   verbose: true
@@ -17,6 +18,7 @@ yuemiao:
   # 需要抢购的门诊id
   seckill_id: ""
   # 打针的人的id，注意不是userId
+#  linkman_id: "510129199701025526"
   linkman_id: ""
   # 打针的人的身份证
   id_card_no: ""

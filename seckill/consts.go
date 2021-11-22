@@ -18,6 +18,8 @@ const (
 	// 获取所有城市列表信息
 	CitiesCodeUrl = "https://miaomiao.scmttec.com/base/region/childRegions.do"
 
+	GetAllCitiesCodeUrl = "https://miaomiao.scmttec.com/base/region/cities.do"
+
 	UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 micromessenger/5.0.1"
 	// 二价
 	CustomIdErJia = "1"
